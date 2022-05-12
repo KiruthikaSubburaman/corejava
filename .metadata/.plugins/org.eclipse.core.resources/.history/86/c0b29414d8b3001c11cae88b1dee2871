@@ -1,0 +1,5 @@
+package edu.lessons.dayB.exceptions.ex1;
+
+public class NestedTry {
+
+}
