@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>GlobalState</title>
+</head>
+<body>
+	<div>
+		<input type=text name='commission' id='commission' value='15000' />
+		<!-- 
+				This element and its value is visible in the browser, but 
+				will not be transferred to the server because it is not a part of(child element of)the <form> element 
+				-->
+	</div>
+	<form action="/firstWebsite/GlobalState?department=id&city=madurai"
+		method="post">
+		<!-- ?department=id&city=madurai=this is an example for query string -->
+		<div>
+			<div>
+				<label for='salary'>Salary:</label> <input type=text name='salary'
+					id='20000' />
+				<!-- salary and submit are examples for visible values in the browser -->
+			</div>
+			<div style="width: 50%; margin: 0 auto">
+				<input type="hidden" value="50000" name="bonus" id="bonus" />
+				<!--hidden value will be in the browser but not visible-->
+			</div>
+			<div style="width: 50%; margin: 0 auto">
+				<input type="submit" value="set" name="submit">
+			</div>
+			<div style="width: 50%; margin: 0 auto">
+				<input type="submit" value="fetch" name="submit">
+				<!--input element is used to store state or data in the client side and it is visible in the browser-->
+			</div>
+		</div>
+	</form>
+</body>
+</html>
