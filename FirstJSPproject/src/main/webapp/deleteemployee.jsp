@@ -7,7 +7,7 @@
 <title>DeleteEmployeesDetails</title>
 </head>
 <body>
-    <form action="/FirstJSPproject/AddEmployee" method="post">
+    <form action="/FirstJSPproject/EmployeeServlet" method="post">
         <br>
         <div style="width: 50%; margin: 0 auto">
             ID:<input type='text' name='id' placeholder="Employee Id">

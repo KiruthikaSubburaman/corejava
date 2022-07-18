@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,14 +24,14 @@ import com.chainsys.jspproject.pojo.Employee;
 /**
  * Servlet implementation class AddEmployee
  */
-@WebServlet("/AddEmployee")
-public class AddEmployee extends HttpServlet {
+@WebServlet("/EmployeeServlet")
+public class EmployeeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddEmployee() {
+    public EmployeeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,17 +42,13 @@ public class AddEmployee extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException 
 	{
-		PrintWriter out = response.getWriter();
 		List<Employee> emplist = EmployeeDao.getAllEmployee();
-		Iterator<Employee> empItr = emplist.iterator();
-		while (empItr.hasNext()) {
-			Employee emp = empItr.next();
-			out.println("</hr>");
-			out.println("Employee id:"+emp.getEmp_id() + "," + "Employee First name:" + emp.getFirst_name() + "," + "Employee Last name:" + emp.getLast_name()
-            + "," + "Employee Email:" + emp.getEmail() + "," + "Employee Hire date:" + emp.getHire_date() + "," 
-            + "Employee JobID:" + emp.getJob_id() + "," +"Employee Salary:" + emp.getSalary() );
-		}
-	}
+
+	request.setAttribute("employeelist", emplist);
+	RequestDispatcher rd = request.getRequestDispatcher("/viewemployee.jsp");
+	rd.forward(request, response);
+	        }
+   
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
