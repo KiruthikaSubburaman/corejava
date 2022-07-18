@@ -1,4 +1,4 @@
-package com.chainsys.jpproject.dao;
+package com.chainsys.jspproject.dao;
 
 import java.sql.*;
 import java.util.ArrayList;
